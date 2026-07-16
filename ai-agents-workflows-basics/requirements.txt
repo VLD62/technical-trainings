@@ -1,0 +1,24 @@
+# Jupyter
+
+jupyterlab>=4.0.0
+
+# Environment variables
+
+python-dotenv>=1.0.0
+
+# OpenAI
+
+openai>=1.0.0
+
+# LangChain ecosystem
+
+langchain>=0.3.0
+langchain-openai>=0.3.0
+langgraph>=0.2.0
+langsmith>=0.1.0
+
+# Utilities
+
+requests>=2.32.0
+ipykernel>=6.29.0
+
