@@ -1,0 +1,21 @@
+# Generic training example only.
+# Confirm all keys against the official Helm chart for the selected Zabbix release.
+# Do not commit real tokens, PSKs, certificates, or internal hostnames.
+
+zabbixProxy:
+  env:
+    - name: ZBX_SERVER_HOST
+      value: "zabbix.example.com"
+    - name: ZBX_SERVER_PORT
+      value: "10051"
+    - name: ZBX_HOSTNAME
+      value: "training-kubernetes-proxy"
+
+zabbixAgent:
+  enabled: true
+
+kubeStateMetrics:
+  enabled: true
+
+# Review and set resource requests and limits before production use.
+# Review image tags, Kubernetes RBAC, network policies, and TLS configuration.

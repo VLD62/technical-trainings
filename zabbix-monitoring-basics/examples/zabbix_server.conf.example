@@ -1,0 +1,29 @@
+# Generic Zabbix server configuration example.
+# Replace all placeholder values.
+# Do not store a real database password in source control.
+
+LogType=file
+LogFile=/var/log/zabbix/zabbix_server.log
+LogFileSize=0
+
+DBHost=db.example.local
+DBName=zabbix
+DBUser=zabbix
+DBPassword=replace-with-secret-from-secure-store
+DBPort=3306
+
+Timeout=4
+
+# Capacity-related settings must be tuned from measured workload.
+# Do not copy arbitrary production values.
+#
+# StartPollers=
+# StartPreprocessors=
+# StartTrappers=
+# CacheSize=
+# HistoryCacheSize=
+# TrendCacheSize=
+
+# Example HA node name:
+#
+# HANodeName=zabbix-server-01

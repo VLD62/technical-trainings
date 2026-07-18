@@ -1,0 +1,26 @@
+# Generic Zabbix Agent 2 configuration example.
+# Replace all placeholder values.
+# Review the official parameter documentation for the selected version.
+
+PidFile=/run/zabbix/zabbix_agent2.pid
+LogType=file
+LogFile=/var/log/zabbix/zabbix_agent2.log
+LogFileSize=0
+
+Server=zabbix.example.com
+ServerActive=zabbix.example.com
+Hostname=linux01.example.com
+
+ListenPort=10050
+Timeout=3
+
+Include=/etc/zabbix/zabbix_agent2.d/*.conf
+
+# Example TLS PSK settings:
+#
+# TLSConnect=psk
+# TLSAccept=psk
+# TLSPSKIdentity=linux01.example.com
+# TLSPSKFile=/etc/zabbix/keys/linux01.psk
+#
+# Keep the PSK file outside source control and restrict its permissions.

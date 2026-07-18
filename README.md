@@ -12,6 +12,7 @@ Each training is organized as an independent module with its own structure, setu
 | **Jenkins Pipelines: Basics** | Practical introduction to Jenkins, CI/CD workflows, Declarative and Scripted Pipelines, agents, plugins, Jenkinsfiles, and pipeline best practices. | [Open training](./jenkins-pipelines-basics/) |
 | **Ansible First Steps** | Hands-on introduction to Ansible automation, inventories, ad-hoc commands, playbooks, facts, handlers, and common operational tasks. | [Open training](./ansible-first-steps/) |
 | **JFrog Artifactory: First Steps** | Practical introduction to artifact repositories, repository types, artifact upload and download workflows, publishing, metadata, and automation. | [Open training](./artifactory-first-steps/) |
+| **Zabbix Monitoring: Basics** | Practical introduction to Zabbix architecture, server components, Agent 2, templates, Kubernetes monitoring, alerting, access control, and troubleshooting. | [Open training](./zabbix-monitoring-basics/) |
 
 ## Repository Structure
 
@@ -37,12 +38,17 @@ technical-trainings/
 │   ├── examples/
 │   ├── playbooks/
 │   └── requirements.txt
-└── artifactory-first-steps/
+├── artifactory-first-steps/
+│   ├── README.md
+│   ├── slides/
+│   ├── docs/
+│   ├── examples/
+│   └── requirements.txt
+└── zabbix-monitoring-basics/
     ├── README.md
     ├── slides/
     ├── docs/
-    ├── examples/
-    └── requirements.txt
+    └── examples/
 ```
 
 Each training directory contains its own `README.md` with detailed information, prerequisites, setup instructions, and links to the available materials.
