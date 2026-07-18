@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+# Copy this file outside the repository and replace placeholders.
+# Do not commit real credentials or tokens.
+
+export OS_AUTH_URL="https://openstack.example.com:5000/v3"
+export OS_USERNAME="training-user"
+export OS_PASSWORD="REPLACE_ME"
+export OS_PROJECT_NAME="training-project"
+export OS_USER_DOMAIN_NAME="Default"
+export OS_PROJECT_DOMAIN_NAME="Default"
+export OS_REGION_NAME="RegionOne"
+export OS_INTERFACE="public"
+export OS_IDENTITY_API_VERSION="3"

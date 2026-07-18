@@ -1,0 +1,36 @@
+# Generic Kolla-Ansible inventory fragment for architecture discussion.
+# Host addresses use RFC documentation ranges.
+
+[control]
+controller01 ansible_host=192.0.2.11
+controller02 ansible_host=192.0.2.12
+controller03 ansible_host=192.0.2.13
+
+[network:children]
+control
+
+[compute]
+compute01 ansible_host=192.0.2.21
+compute02 ansible_host=192.0.2.22
+
+[monitoring:children]
+control
+
+[storage]
+storage01 ansible_host=192.0.2.31
+storage02 ansible_host=192.0.2.32
+storage03 ansible_host=192.0.2.33
+
+[deployment]
+deployment01 ansible_host=192.0.2.10
+
+[baremetal:children]
+control
+network
+compute
+storage
+
+[all:vars]
+ansible_user=cloud-deployer
+ansible_become=true
+ansible_python_interpreter=/usr/bin/python3

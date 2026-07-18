@@ -1,0 +1,32 @@
+---
+# Generic discussion example only.
+# Verify every option against the selected Kolla-Ansible release.
+
+kolla_base_distro: "ubuntu"
+
+# Management/API interface.
+network_interface: "eth0"
+
+# Dedicated provider-network interface. It normally has no host IP address.
+neutron_external_interface: "eth1"
+
+# Use an unused address in the management network.
+kolla_internal_vip_address: "192.0.2.250"
+
+# Example backend choice. Confirm current release options.
+neutron_plugin_agent: "ovn"
+
+# Keep optional services disabled until requirements are understood.
+enable_cinder: "no"
+enable_manila: "no"
+enable_octavia: "no"
+enable_magnum: "no"
+
+enable_horizon: "yes"
+
+enable_prometheus: "yes"
+enable_grafana: "yes"
+
+# Production environments should design and enable TLS deliberately.
+enable_tls_internal: "no"
+enable_tls_external: "no"

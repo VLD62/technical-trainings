@@ -1,0 +1,56 @@
+heat_template_version: 2021-04-16
+
+description: >
+  Minimal training template that creates a security group and one server.
+  Supply cloud-specific image, flavor, network, and key-pair values.
+
+parameters:
+  image:
+    type: string
+  flavor:
+    type: string
+  network:
+    type: string
+  key_name:
+    type: string
+  trusted_ssh_cidr:
+    type: string
+    default: 192.0.2.0/24
+
+resources:
+  web_security_group:
+    type: OS::Neutron::SecurityGroup
+    properties:
+      description: Training security group
+      rules:
+        - protocol: tcp
+          port_range_min: 22
+          port_range_max: 22
+          remote_ip_prefix: { get_param: trusted_ssh_cidr }
+        - protocol: tcp
+          port_range_min: 80
+          port_range_max: 80
+          remote_ip_prefix: 0.0.0.0/0
+
+  web_server:
+    type: OS::Nova::Server
+    properties:
+      name: heat-training-web
+      image: { get_param: image }
+      flavor: { get_param: flavor }
+      key_name: { get_param: key_name }
+      networks:
+        - network: { get_param: network }
+      security_groups:
+        - { get_resource: web_security_group }
+      user_data_format: RAW
+      user_data: |
+        #cloud-config
+        packages:
+          - nginx
+        runcmd:
+          - [ sh, -c, 'echo OpenStack Heat training > /var/www/html/index.html' ]
+
+outputs:
+  server_id:
+    value: { get_resource: web_server }

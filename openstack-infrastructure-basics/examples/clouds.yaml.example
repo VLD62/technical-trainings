@@ -1,0 +1,13 @@
+clouds:
+  training:
+    auth:
+      auth_url: https://openstack.example.com:5000/v3
+      username: training-user
+      password: REPLACE_ME
+      project_name: training-project
+      user_domain_name: Default
+      project_domain_name: Default
+    region_name: RegionOne
+    interface: public
+    identity_api_version: 3
+    verify: true
