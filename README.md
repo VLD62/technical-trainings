@@ -6,11 +6,12 @@ Each training is organized as an independent module with its own structure, setu
 
 ## Training Catalog
 
-| Training                          | Description                                                                                                                                         | Materials                                      |
-| --------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------- |
-| **AI Agents & Workflows: Basics** | Practical introduction to AI agents, workflows, tools, memory, prompt engineering, LangChain, and related concepts.                                 | [Open training](./ai-agents-workflows-basics/) |
-| **Jenkins Pipelines: Basics**     | Practical introduction to Jenkins, CI/CD workflows, Declarative and Scripted Pipelines, agents, plugins, Jenkinsfiles, and pipeline best practices. | [Open training](./jenkins-pipelines-basics/)   |
-| **Ansible First Steps**           | Hands-on introduction to Ansible automation, inventories, ad-hoc commands, playbooks, facts, handlers, and common operational tasks.                | [Open training](./ansible-first-steps/)        |
+| Training | Description | Materials |
+|---|---|---|
+| **AI Agents & Workflows: Basics** | Practical introduction to AI agents, workflows, tools, memory, prompt engineering, LangChain, and related concepts. | [Open training](./ai-agents-workflows-basics/) |
+| **Jenkins Pipelines: Basics** | Practical introduction to Jenkins, CI/CD workflows, Declarative and Scripted Pipelines, agents, plugins, Jenkinsfiles, and pipeline best practices. | [Open training](./jenkins-pipelines-basics/) |
+| **Ansible First Steps** | Hands-on introduction to Ansible automation, inventories, ad-hoc commands, playbooks, facts, handlers, and common operational tasks. | [Open training](./ansible-first-steps/) |
+| **JFrog Artifactory: First Steps** | Practical introduction to artifact repositories, repository types, artifact upload and download workflows, publishing, metadata, and automation. | [Open training](./artifactory-first-steps/) |
 
 ## Repository Structure
 
@@ -29,21 +30,22 @@ technical-trainings/
 │   ├── slides/
 │   ├── docs/
 │   └── examples/
-└── ansible-first-steps/
+├── ansible-first-steps/
+│   ├── README.md
+│   ├── slides/
+│   ├── docs/
+│   ├── examples/
+│   ├── playbooks/
+│   └── requirements.txt
+└── artifactory-first-steps/
     ├── README.md
     ├── slides/
     ├── docs/
     ├── examples/
-    ├── playbooks/
     └── requirements.txt
 ```
 
 Each training directory contains its own `README.md` with detailed information, prerequisites, setup instructions, and links to the available materials.
-
-## License
-
-
-Each training directory contains its own `README.md` with detailed information, setup instructions, and links to the available materials.
 
 ## License
 
