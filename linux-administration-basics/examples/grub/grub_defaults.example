@@ -1,0 +1,9 @@
+# Example only. Distribution defaults and update commands differ.
+GRUB_DEFAULT=0
+GRUB_TIMEOUT=5
+GRUB_DISTRIBUTOR="Linux Training Lab"
+GRUB_CMDLINE_LINUX_DEFAULT="quiet"
+GRUB_CMDLINE_LINUX=""
+
+# After editing the real configuration, regenerate grub.cfg with the
+# distribution-appropriate command. Do not overwrite grub.cfg manually.

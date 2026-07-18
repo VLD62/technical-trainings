@@ -1,0 +1,7 @@
+# Static local name mappings for a fictional lab.
+127.0.0.1       localhost
+192.0.2.10      linux-deb.example.test linux-deb
+192.0.2.11      linux-rpm.example.test linux-rpm
+192.0.2.12      linux-suse.example.test linux-suse
+
+# 192.0.2.0/24 is reserved for documentation and examples.

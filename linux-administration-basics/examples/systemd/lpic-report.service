@@ -1,0 +1,6 @@
+[Unit]
+Description=Create a user-level LPIC timestamp report
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/sh -c '/usr/bin/date --iso-8601=seconds >> %h/lpic-timer-report.log'

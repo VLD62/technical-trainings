@@ -1,0 +1,6 @@
+# Example system crontab fragment.
+# System crontabs include a username field.
+SHELL=/bin/bash
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+
+15 2 * * * root /usr/local/sbin/example-maintenance >> /var/log/example-maintenance.log 2>&1
