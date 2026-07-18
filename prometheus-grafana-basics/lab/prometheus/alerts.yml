@@ -1,0 +1,86 @@
+groups:
+  - name: infrastructure
+    interval: 30s
+    rules:
+      - alert: InstanceDown
+        expr: up{job=~"linux-hosts|sample-app"} == 0
+        for: 2m
+        labels:
+          severity: critical
+          category: availability
+        annotations:
+          summary: "Target {{ $labels.instance }} is unavailable"
+          description: "Prometheus has failed to scrape {{ $labels.instance }} for at least two minutes."
+
+      - alert: HighCpuUsage
+        expr: |
+          100 - (
+            avg by (instance) (
+              rate(node_cpu_seconds_total{job="linux-hosts", mode="idle"}[5m])
+            ) * 100
+          ) > 85
+        for: 10m
+        labels:
+          severity: warning
+          category: saturation
+        annotations:
+          summary: "High CPU usage on {{ $labels.instance }}"
+          description: "CPU utilization has been above 85 percent for ten minutes."
+
+      - alert: HighMemoryUsage
+        expr: |
+          100 * (
+            1 -
+            node_memory_MemAvailable_bytes{job="linux-hosts"}
+            /
+            node_memory_MemTotal_bytes{job="linux-hosts"}
+          ) > 90
+        for: 10m
+        labels:
+          severity: warning
+          category: saturation
+        annotations:
+          summary: "High memory usage on {{ $labels.instance }}"
+          description: "Memory utilization has been above 90 percent for ten minutes."
+
+      - alert: LowDiskSpace
+        expr: |
+          (
+            100 *
+            node_filesystem_avail_bytes{
+              job="linux-hosts",
+              fstype!~"tmpfs|overlay|squashfs"
+            }
+            /
+            node_filesystem_size_bytes{
+              job="linux-hosts",
+              fstype!~"tmpfs|overlay|squashfs"
+            }
+          ) < 10
+          and on (instance, device, mountpoint)
+          node_filesystem_readonly{job="linux-hosts"} == 0
+        for: 15m
+        labels:
+          severity: warning
+          category: capacity
+        annotations:
+          summary: "Low disk space on {{ $labels.instance }}"
+          description: "Filesystem {{ $labels.mountpoint }} has less than 10 percent free space."
+
+  - name: sample-application
+    interval: 30s
+    rules:
+      - alert: SampleAppHighErrorRate
+        expr: |
+          (
+            sum(rate(sample_http_requests_total{status=~"5.."}[5m]))
+            /
+            clamp_min(sum(rate(sample_http_requests_total[5m])), 0.001)
+          ) > 0.05
+        for: 5m
+        labels:
+          severity: warning
+          category: errors
+        annotations:
+          summary: "Sample application error rate is high"
+          description: "More than five percent of requests have returned 5xx responses for five minutes."

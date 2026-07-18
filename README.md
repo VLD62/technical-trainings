@@ -4,6 +4,12 @@ A collection of reusable technical training materials, presentations, documentat
 
 Each training is organized as an independent module with its own structure, setup instructions, and learning materials.
 
+# Technical Trainings
+
+A collection of reusable technical training materials, presentations, documentation, notebooks, and practical examples.
+
+Each training is organized as an independent module with its own structure, setup instructions, and learning materials.
+
 ## Training Catalog
 
 | Training | Description | Materials |
@@ -14,6 +20,7 @@ Each training is organized as an independent module with its own structure, setu
 | **JFrog Artifactory: First Steps** | Practical introduction to artifact repositories, repository types, artifact upload and download workflows, publishing, metadata, and automation. | [Open training](./artifactory-first-steps/) |
 | **Zabbix Monitoring: Basics** | Practical introduction to Zabbix architecture, server components, Agent 2, templates, Kubernetes monitoring, alerting, access control, and troubleshooting. | [Open training](./zabbix-monitoring-basics/) |
 | **Linux Administration: Basics** | Practical, vendor-neutral Linux administration course covering system architecture, command-line tools, package management, filesystems, users, services, networking, security, shell scripting, and preparation for the LPIC-1 101-500 and 102-500 exams. | [Open training](./linux-administration-basics/) |
+| **Prometheus & Grafana: Basics** | Hands-on introduction to metrics monitoring, Prometheus architecture, Node Exporter, PromQL, Grafana dashboards, provisioning, alerting, and multi-host Linux monitoring. | [Open training](./prometheus-grafana-basics/) |
 
 ## Repository Structure
 
@@ -50,17 +57,25 @@ technical-trainings/
 │   ├── slides/
 │   ├── docs/
 │   └── examples/
-└── linux-administration-basics/
+├── linux-administration-basics/
+│   ├── README.md
+│   ├── MANIFEST.md
+│   ├── LICENSE.md
+│   ├── Makefile
+│   ├── slides/
+│   ├── docs/
+│   ├── labs/
+│   ├── examples/
+│   ├── scripts/
+│   └── quizzes/
+└── prometheus-grafana-basics/
     ├── README.md
     ├── MANIFEST.md
-    ├── LICENSE.md
     ├── Makefile
     ├── slides/
     ├── docs/
-    ├── labs/
-    ├── examples/
-    ├── scripts/
-    └── quizzes/
+    ├── exercises/
+    └── lab/
 ```
 
 Each training directory contains its own `README.md` with detailed information, prerequisites, setup instructions, and links to the available materials.

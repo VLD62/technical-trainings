@@ -1,0 +1,14 @@
+- targets:
+    - node-exporter:9100
+  labels:
+    environment: training
+    role: local-linux-host
+
+# Generic multi-host example:
+#
+# - targets:
+#     - host-01.example.internal:9100
+#     - host-02.example.internal:9100
+#   labels:
+#     environment: training
+#     role: build-machine
