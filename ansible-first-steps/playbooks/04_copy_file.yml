@@ -1,0 +1,13 @@
+---
+- name: Copy a managed file
+  hosts: all
+  gather_facts: false
+
+  tasks:
+    - name: Create an example file in /tmp
+      ansible.builtin.copy:
+        dest: /tmp/ansible-training-example.txt
+        content: |
+          This file was created by Ansible.
+          Host: {{ inventory_hostname }}
+        mode: '0644'

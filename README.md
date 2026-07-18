@@ -1,27 +1,47 @@
 # Technical Trainings
 
-A collection of technical training materials, presentations, notebooks, and practical examples.
+A collection of reusable technical training materials, presentations, documentation, notebooks, and practical examples.
 
-The repository is organized as a catalog of independent training modules and will be expanded over time.
+Each training is organized as an independent module with its own structure, setup instructions, and learning materials.
 
 ## Training Catalog
 
-| Training | Description | Materials |
-|---|---|---|
-| **AI Agents & Workflows: Basics** | Practical introduction to AI agents, workflows, tools, memory, prompt engineering, LangChain, and related concepts. | [Open training](./ai-agents-workflows-basics/) |
+| Training                          | Description                                                                                                                                         | Materials                                      |
+| --------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------- |
+| **AI Agents & Workflows: Basics** | Practical introduction to AI agents, workflows, tools, memory, prompt engineering, LangChain, and related concepts.                                 | [Open training](./ai-agents-workflows-basics/) |
+| **Jenkins Pipelines: Basics**     | Practical introduction to Jenkins, CI/CD workflows, Declarative and Scripted Pipelines, agents, plugins, Jenkinsfiles, and pipeline best practices. | [Open training](./jenkins-pipelines-basics/)   |
+| **Ansible First Steps**           | Hands-on introduction to Ansible automation, inventories, ad-hoc commands, playbooks, facts, handlers, and common operational tasks.                | [Open training](./ansible-first-steps/)        |
 
 ## Repository Structure
 
 ```text
 technical-trainings/
 ├── README.md
-└── ai-agents-workflows-basics/
+├── LICENSE
+├── ai-agents-workflows-basics/
+│   ├── README.md
+│   ├── slides/
+│   ├── notebooks/
+│   ├── docs/
+│   └── requirements.txt
+├── jenkins-pipelines-basics/
+│   ├── README.md
+│   ├── slides/
+│   ├── docs/
+│   └── examples/
+└── ansible-first-steps/
     ├── README.md
     ├── slides/
-    ├── notebooks/
     ├── docs/
+    ├── examples/
+    ├── playbooks/
     └── requirements.txt
 ```
+
+Each training directory contains its own `README.md` with detailed information, prerequisites, setup instructions, and links to the available materials.
+
+## License
+
 
 Each training directory contains its own `README.md` with detailed information, setup instructions, and links to the available materials.
 

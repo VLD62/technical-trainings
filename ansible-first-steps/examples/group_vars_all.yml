@@ -1,0 +1,7 @@
+---
+example_packages:
+  - curl
+  - git
+
+example_service_name: ssh
+example_file_content: "Managed by Ansible training example"

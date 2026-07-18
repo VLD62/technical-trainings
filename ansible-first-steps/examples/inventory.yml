@@ -1,0 +1,21 @@
+all:
+  children:
+    local:
+      hosts:
+        localhost:
+          ansible_connection: local
+    web:
+      hosts:
+        web01.example.local:
+          ansible_user: admin
+        web02.example.local:
+          ansible_user: admin
+    db:
+      hosts:
+        db01.example.local:
+          ansible_user: admin
+    linux:
+      children:
+        local:
+        web:
+        db:

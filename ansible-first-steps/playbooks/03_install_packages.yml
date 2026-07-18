@@ -1,0 +1,16 @@
+---
+- name: Install basic packages
+  hosts: all
+  become: true
+  gather_facts: true
+
+  vars:
+    packages_to_install:
+      - curl
+      - git
+
+  tasks:
+    - name: Install required packages
+      ansible.builtin.package:
+        name: "{{ packages_to_install }}"
+        state: present
