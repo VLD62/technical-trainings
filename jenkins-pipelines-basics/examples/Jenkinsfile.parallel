@@ -1,0 +1,40 @@
+pipeline {
+  agent any
+
+  stages {
+    stage('Build') {
+      steps {
+        sh 'make build'
+      }
+    }
+
+    stage('Quality Checks') {
+      parallel {
+        stage('Unit Tests') {
+          steps {
+            sh 'make test'
+          }
+        }
+
+        stage('Lint') {
+          steps {
+            sh 'make lint'
+          }
+        }
+
+        stage('Security Scan') {
+          steps {
+            sh 'make security-scan'
+          }
+        }
+      }
+    }
+  }
+
+  post {
+    always {
+      junit '**/TEST-*.xml'
+      archiveArtifacts artifacts: 'reports/**', allowEmptyArchive: true
+    }
+  }
+}

@@ -1,0 +1,31 @@
+pipeline {
+  agent any
+
+  stages {
+    stage('Checkout') {
+      steps {
+        checkout scm
+      }
+    }
+
+    stage('Build') {
+      steps {
+        sh 'echo Building application'
+        sh 'make build'
+      }
+    }
+
+    stage('Test') {
+      steps {
+        sh 'echo Running tests'
+        sh 'make test'
+      }
+    }
+  }
+
+  post {
+    always {
+      echo 'Pipeline finished.'
+    }
+  }
+}

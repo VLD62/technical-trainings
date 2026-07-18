@@ -1,0 +1,20 @@
+# Jenkins temporary files
+.jenkins/
+
+# Logs
+*.log
+logs/
+
+# Build outputs
+build/
+dist/
+target/
+out/
+
+# Local editor files
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db

@@ -1,0 +1,45 @@
+def runCommand(String description, String command) {
+  echo description
+  sh command
+}
+
+pipeline {
+  agent any
+
+  environment {
+    APP_NAME = 'demo-app'
+  }
+
+  stages {
+    stage('Build') {
+      steps {
+        script {
+          runCommand('Building application', 'make build')
+        }
+      }
+    }
+
+    stage('Test') {
+      steps {
+        script {
+          runCommand('Running tests', 'make test')
+        }
+      }
+    }
+
+    stage('Package') {
+      steps {
+        script {
+          runCommand('Packaging application', 'make package')
+        }
+      }
+    }
+  }
+
+  post {
+    always {
+      echo "Finished pipeline for ${env.APP_NAME}"
+      archiveArtifacts artifacts: 'dist/**', allowEmptyArchive: true, fingerprint: true
+    }
+  }
+}

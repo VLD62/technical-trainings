@@ -1,0 +1,43 @@
+pipeline {
+  agent any
+
+  parameters {
+    choice(name: 'TARGET_ENV', choices: ['dev', 'test', 'prod'], description: 'Deployment target')
+    booleanParam(name: 'RUN_DEPLOY', defaultValue: false, description: 'Run deployment stage')
+  }
+
+  environment {
+    APP_NAME = 'demo-app'
+  }
+
+  stages {
+    stage('Build') {
+      steps {
+        sh 'echo Building $APP_NAME'
+        sh 'make build'
+      }
+    }
+
+    stage('Test') {
+      steps {
+        sh 'make test'
+      }
+    }
+
+    stage('Deploy') {
+      when {
+        expression { return params.RUN_DEPLOY }
+      }
+      steps {
+        sh 'echo Deploying $APP_NAME to ${TARGET_ENV}'
+        sh 'make deploy TARGET_ENV=${TARGET_ENV}'
+      }
+    }
+  }
+
+  post {
+    always {
+      archiveArtifacts artifacts: 'logs/**/*.log', allowEmptyArchive: true
+    }
+  }
+}
