@@ -19,6 +19,7 @@ Each training is organized as an independent module with its own structure, setu
 | **OpenStack Infrastructure: Basics** | Hands-on introduction to OpenStack architecture, core services, Kolla-Ansible deployment, Neutron networking, Ceph storage, operations, troubleshooting, scaling, and high availability. | [Open training](./openstack-infrastructure-basics/) |
 | **Kubernetes & Cloud Native Associate** | Structured preparation for the KCNA certification, covering Kubernetes fundamentals, container orchestration, cloud native application delivery, architecture, observability, security, storage, and the CNCF ecosystem. | [Open training](./kubernetes-cloud-native-associate/) |
 | **PL/SQL & T-SQL Database Programming: Fundamentals** | Hands-on introduction to database programming with Oracle PL/SQL and Microsoft SQL Server T-SQL, covering procedural SQL, variables, control flow, cursors, stored procedures, functions, packages, transactions, error handling, triggers, dynamic SQL, security, performance, and deployment practices. | [Open training](./plsql-tsql-database-programming-fundamentals/) |
+| **Bash Scripting: Fundamentals** | Hands-on introduction to Bash scripting, covering shell fundamentals, variables, parameters, conditions, loops, functions, arrays, text processing, files, error handling, debugging, security, testing, and reusable automation scripts. | [Open training](./bash-scripting-fundamentals/) |
 
 ## Repository Structure
 
@@ -106,12 +107,24 @@ technical-trainings/
 │   ├── examples/
 │   ├── scripts/
 │   └── quizzes/
-└── plsql-tsql-database-programming-fundamentals/
+├── plsql-tsql-database-programming-fundamentals/
+│   ├── README.md
+│   ├── MANIFEST.md
+│   ├── LICENSE.md
+│   ├── Makefile
+│   ├── docker-compose.yml
+│   ├── slides/
+│   ├── docs/
+│   ├── labs/
+│   ├── examples/
+│   ├── scripts/
+│   ├── tests/
+│   └── quizzes/
+└── bash-scripting-fundamentals/
     ├── README.md
     ├── MANIFEST.md
     ├── LICENSE.md
     ├── Makefile
-    ├── docker-compose.yml
     ├── slides/
     ├── docs/
     ├── labs/
@@ -122,6 +135,7 @@ technical-trainings/
 ```
 
 Each training directory contains its own `README.md` with detailed information, prerequisites, setup instructions, and links to the available materials.
+
 
 ## License
 

@@ -1,0 +1,8 @@
+*.log
+*.tar.gz
+*.tmp
+.DS_Store
+__pycache__/
+reports/
+tmp/
+work/
