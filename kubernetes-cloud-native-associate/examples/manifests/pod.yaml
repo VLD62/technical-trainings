@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: demo-pod
+  namespace: kcna-lab
+  labels:
+    app: demo-pod
+spec:
+  containers:
+    - name: web
+      image: nginx:stable-alpine
+      ports:
+        - name: http
+          containerPort: 80

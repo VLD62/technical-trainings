@@ -17,6 +17,7 @@ Each training is organized as an independent module with its own structure, setu
 | **Prometheus & Grafana: Basics** | Hands-on introduction to metrics monitoring, Prometheus architecture, Node Exporter, PromQL, Grafana dashboards, provisioning, alerting, and multi-host Linux monitoring. | [Open training](./prometheus-grafana-basics/) |
 | **Virtualization & Container Technologies: Basics** | Practical introduction to virtual machines, hypervisors, container images, engines, runtimes, registries, Docker, Podman, Compose, isolation, and hybrid infrastructure patterns. | [Open training](./virtualization-container-technologies-basics/) |
 | **OpenStack Infrastructure: Basics** | Hands-on introduction to OpenStack architecture, core services, Kolla-Ansible deployment, Neutron networking, Ceph storage, operations, troubleshooting, scaling, and high availability. | [Open training](./openstack-infrastructure-basics/) |
+| **Kubernetes & Cloud Native Associate** | Structured preparation for the KCNA certification, covering Kubernetes fundamentals, container orchestration, cloud native application delivery, architecture, observability, security, storage, and the CNCF ecosystem. | [Open training](./kubernetes-cloud-native-associate/) |
 
 ## Repository Structure
 
@@ -82,7 +83,18 @@ technical-trainings/
 │   ├── examples/
 │   ├── scripts/
 │   └── quizzes/
-└── openstack-infrastructure-basics/
+├── openstack-infrastructure-basics/
+│   ├── README.md
+│   ├── MANIFEST.md
+│   ├── LICENSE.md
+│   ├── Makefile
+│   ├── slides/
+│   ├── docs/
+│   ├── labs/
+│   ├── examples/
+│   ├── scripts/
+│   └── quizzes/
+└── kubernetes-cloud-native-associate/
     ├── README.md
     ├── MANIFEST.md
     ├── LICENSE.md
