@@ -18,6 +18,7 @@ Each training is organized as an independent module with its own structure, setu
 | **Virtualization & Container Technologies: Basics** | Practical introduction to virtual machines, hypervisors, container images, engines, runtimes, registries, Docker, Podman, Compose, isolation, and hybrid infrastructure patterns. | [Open training](./virtualization-container-technologies-basics/) |
 | **OpenStack Infrastructure: Basics** | Hands-on introduction to OpenStack architecture, core services, Kolla-Ansible deployment, Neutron networking, Ceph storage, operations, troubleshooting, scaling, and high availability. | [Open training](./openstack-infrastructure-basics/) |
 | **Kubernetes & Cloud Native Associate** | Structured preparation for the KCNA certification, covering Kubernetes fundamentals, container orchestration, cloud native application delivery, architecture, observability, security, storage, and the CNCF ecosystem. | [Open training](./kubernetes-cloud-native-associate/) |
+| **PL/SQL & T-SQL Database Programming: Fundamentals** | Hands-on introduction to database programming with Oracle PL/SQL and Microsoft SQL Server T-SQL, covering procedural SQL, variables, control flow, cursors, stored procedures, functions, packages, transactions, error handling, triggers, dynamic SQL, security, performance, and deployment practices. | [Open training](./plsql-tsql-database-programming-fundamentals/) |
 
 ## Repository Structure
 
@@ -94,16 +95,29 @@ technical-trainings/
 │   ├── examples/
 │   ├── scripts/
 │   └── quizzes/
-└── kubernetes-cloud-native-associate/
+├── kubernetes-cloud-native-associate/
+│   ├── README.md
+│   ├── MANIFEST.md
+│   ├── LICENSE.md
+│   ├── Makefile
+│   ├── slides/
+│   ├── docs/
+│   ├── labs/
+│   ├── examples/
+│   ├── scripts/
+│   └── quizzes/
+└── plsql-tsql-database-programming-fundamentals/
     ├── README.md
     ├── MANIFEST.md
     ├── LICENSE.md
     ├── Makefile
+    ├── docker-compose.yml
     ├── slides/
     ├── docs/
     ├── labs/
     ├── examples/
     ├── scripts/
+    ├── tests/
     └── quizzes/
 ```
 

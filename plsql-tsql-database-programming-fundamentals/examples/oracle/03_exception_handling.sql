@@ -1,0 +1,17 @@
+SET SERVEROUTPUT ON;
+
+DECLARE
+  v_salary employees.salary%TYPE;
+BEGIN
+  SELECT salary
+  INTO v_salary
+  FROM employees
+  WHERE employee_id = 99999;
+EXCEPTION
+  WHEN NO_DATA_FOUND THEN
+    DBMS_OUTPUT.PUT_LINE('Expected missing employee');
+    DBMS_OUTPUT.PUT_LINE('Code: ' || SQLCODE);
+    DBMS_OUTPUT.PUT_LINE('Message: ' || SQLERRM);
+    DBMS_OUTPUT.PUT_LINE(DBMS_UTILITY.FORMAT_ERROR_BACKTRACE);
+END;
+/
