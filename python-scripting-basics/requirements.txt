@@ -1,0 +1,4 @@
+# Runtime examples use only the Python standard library.
+# Optional development tools:
+pytest>=8.0,<10.0
+ruff>=0.6,<1.0

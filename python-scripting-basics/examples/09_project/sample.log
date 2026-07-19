@@ -1,0 +1,8 @@
+2026-07-19T10:15:00 INFO api Service started
+2026-07-19T10:15:03 INFO worker Polling queue
+2026-07-19T10:15:04 WARNING database Slow query detected
+2026-07-19T10:15:09 ERROR worker Job failed
+2026-07-19T10:15:12 INFO api Request completed
+this line is malformed
+2026-07-19T10:15:20 ERROR api Upstream unavailable
+2026-07-19T10:15:24 INFO worker Job completed
