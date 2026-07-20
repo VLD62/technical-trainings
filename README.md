@@ -20,7 +20,8 @@ Each training is organized as an independent module with its own structure, setu
 | **Kubernetes & Cloud Native Associate** | Structured preparation for the KCNA certification, covering Kubernetes fundamentals, container orchestration, cloud native application delivery, architecture, observability, security, storage, and the CNCF ecosystem. | [Open training](./kubernetes-cloud-native-associate/) |
 | **PL/SQL & T-SQL Database Programming: Fundamentals** | Hands-on introduction to database programming with Oracle PL/SQL and Microsoft SQL Server T-SQL, covering procedural SQL, variables, control flow, cursors, stored procedures, functions, packages, transactions, error handling, triggers, dynamic SQL, security, performance, and deployment practices. | [Open training](./plsql-tsql-database-programming-fundamentals/) |
 | **Bash Scripting: Fundamentals** | Hands-on introduction to Bash scripting, covering shell fundamentals, variables, parameters, conditions, loops, functions, arrays, text processing, files, error handling, debugging, security, testing, and reusable automation scripts. | [Open training](./bash-scripting-fundamentals/) |
-| **Python Scripting: Basics** | Practical introduction to Python scripting, automation, functions, modules, file processing, command-line tools, logging, testing, and object-oriented programming with classes, composition, inheritance, and protocols. | [Open training](./python-scripting-oop-basics/) |
+| **Python Scripting: Basics** | Practical introduction to Python scripting, automation, functions, modules, file processing, command-line tools, logging, testing, and object-oriented programming with classes, composition, inheritance, and protocols. | [Open training](./python-scripting-basics/) |
+| **Cloud Computing: Fundamentals** | Vendor-neutral introduction to cloud computing concepts, service and deployment models, reliability, security, networking, storage, databases, observability, Infrastructure as Code, FinOps, migration strategies, and the core services of AWS, Microsoft Azure, Google Cloud, and Oracle Cloud Infrastructure. | [Open training](./cloud-computing-fundamentals/) |
 
 ## Repository Structure
 
@@ -133,12 +134,23 @@ technical-trainings/
 │   ├── scripts/
 │   ├── tests/
 │   └── quizzes/
-└── python-scripting-basics/
+├── python-scripting-basics/
+│   ├── README.md
+│   ├── MANIFEST.md
+│   ├── LICENSE.md
+│   ├── Makefile
+│   ├── requirements.txt
+│   ├── slides/
+│   ├── docs/
+│   ├── labs/
+│   ├── examples/
+│   ├── scripts/
+│   └── quizzes/
+└── cloud-computing-fundamentals/
     ├── README.md
     ├── MANIFEST.md
     ├── LICENSE.md
     ├── Makefile
-    ├── requirements.txt
     ├── slides/
     ├── docs/
     ├── labs/

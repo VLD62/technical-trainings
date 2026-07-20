@@ -1,0 +1,18 @@
+Capability,AWS,Microsoft Azure,Google Cloud,OCI
+Virtual machines,Amazon EC2,Azure Virtual Machines,Compute Engine,Compute
+Autoscaling VMs,EC2 Auto Scaling,Virtual Machine Scale Sets,Managed instance groups,Instance pools and autoscaling
+Object storage,Amazon S3,Azure Blob Storage,Cloud Storage,Object Storage
+Block storage,Amazon EBS,Managed Disks,Persistent Disk / Hyperdisk,Block Volumes
+File storage,Amazon EFS / FSx,Azure Files,Filestore,File Storage
+Virtual network,Amazon VPC,Azure Virtual Network,VPC network,Virtual Cloud Network
+Managed Kubernetes,Amazon EKS,Azure Kubernetes Service,Google Kubernetes Engine,Oracle Kubernetes Engine
+Serverless functions,AWS Lambda,Azure Functions,Cloud Run functions,OCI Functions
+Serverless containers,AWS Fargate / App Runner,Azure Container Apps,Cloud Run,Container Instances
+Relational database,Amazon RDS / Aurora,Azure SQL and managed DB services,Cloud SQL / AlloyDB,Base Database / Autonomous Database
+NoSQL,DynamoDB,Cosmos DB,Firestore / Bigtable,NoSQL Database
+Queue and events,SQS / SNS / EventBridge,Service Bus / Event Grid,Pub/Sub / Eventarc,Queue / Events / Notifications
+Monitoring,CloudWatch,Azure Monitor,Cloud Monitoring,Monitoring
+Audit logging,CloudTrail,Activity Log,Cloud Audit Logs,Audit
+Secret management,Secrets Manager,Key Vault,Secret Manager,Vault Secrets
+Key management,KMS,Key Vault / Managed HSM,Cloud KMS,Vault / Key Management
+Native IaC,CloudFormation / CDK,ARM / Bicep,Infrastructure Manager,Resource Manager

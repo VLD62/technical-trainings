@@ -1,0 +1,48 @@
+workload:
+  name: shopnow
+  description: Fictional European e-commerce application used for training
+  owner: commerce-platform-team
+  environment: training
+
+business:
+  normal_requests_per_second: 40
+  seasonal_peak_requests_per_second: 400
+  monthly_orders: 120000
+  criticality: high
+
+availability:
+  service_target_percent: 99.9
+  rto_minutes: 60
+  rpo_minutes: 15
+  minimum_failure_domains: 2
+
+application:
+  frontend: public_https
+  api: stateless
+  background_processing: required
+  deployment_frequency: multiple_per_week
+
+
+data:
+  primary_location: europe
+  customer_data_classification: confidential
+  order_database: relational
+  product_assets: object_storage
+  backup_retention_days: 35
+  archive_retention_years: 7
+
+security:
+  workforce_federation: required
+  multifactor_authentication: required
+  workload_identity: required
+  encryption_at_rest: required
+  encryption_in_transit: required
+  public_database_access: forbidden
+  central_audit_logging: required
+
+operations:
+  infrastructure_as_code: required
+  centralized_metrics_logs_traces: required
+  automatic_scaling: required
+  tested_restore_process: required
+  monthly_cost_budget_eur: 6000

@@ -1,0 +1,30 @@
+policy:
+  name: mandatory-cloud-resource-metadata
+  purpose: ownership_governance_cost_and_lifecycle
+
+required_fields:
+  owner:
+    description: Team or service owner
+    example: commerce-platform-team
+  application:
+    description: Product or workload name
+    example: shopnow
+  environment:
+    allowed_values: [development, test, staging, production, training]
+  cost_center:
+    description: Financial allocation code
+    example: cc-1042
+  data_classification:
+    allowed_values: [public, internal, confidential, restricted]
+  managed_by:
+    allowed_values: [terraform, cloudformation, bicep, deployment-manager, resource-manager, manual-approved]
+  expiry_date:
+    description: Required for temporary and non-production resources
+    format: YYYY-MM-DD
+
+rules:
+  - resources_missing_required_fields_are_noncompliant
+  - training_resources_must_have_expiry_date
+  - production_resources_require_named_owner
+  - public_resources_require_security_review_reference
+  - metadata_changes_are_audited
