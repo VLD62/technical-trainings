@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: demo-app-plain
+  namespace: argocd
+spec:
+  project: training
+  source:
+    repoURL: https://github.com/REPLACE_ME/gitops-lab.git
+    targetRevision: main
+    path: plain/demo-app
+    directory:
+      recurse: true
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: gitops-demo-plain
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true

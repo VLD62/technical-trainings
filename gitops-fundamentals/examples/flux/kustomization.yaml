@@ -1,0 +1,21 @@
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: demo-app-dev
+  namespace: flux-system
+spec:
+  interval: 5m
+  retryInterval: 1m
+  timeout: 3m
+  path: ./apps/demo-app/overlays/dev
+  prune: true
+  wait: true
+  targetNamespace: gitops-demo-dev
+  sourceRef:
+    kind: GitRepository
+    name: gitops-lab
+  healthChecks:
+    - apiVersion: apps/v1
+      kind: Deployment
+      name: demo-app
+      namespace: gitops-demo-dev

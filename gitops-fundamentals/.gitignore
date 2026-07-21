@@ -1,0 +1,35 @@
+# Local cluster and credentials
+*.kubeconfig
+kubeconfig
+.env
+.env.*
+*.pem
+*.key
+*.crt
+*.p12
+*.token
+secrets/
+credentials/
+
+# Generated output
+.rendered/
+tmp/
+dist/
+*.log
+*.out
+
+# Helm
+charts/
+*.tgz
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Editors and operating systems
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

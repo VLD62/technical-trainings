@@ -1,0 +1,99 @@
+pipeline {
+    agent any
+
+    parameters {
+        string(
+            name: 'IMAGE_REFERENCE',
+            defaultValue: 'nginx:1.27.5-alpine',
+            description: 'Immutable image tag or digest to promote'
+        )
+        choice(
+            name: 'TARGET_ENVIRONMENT',
+            choices: ['dev', 'staging', 'prod'],
+            description: 'GitOps environment to update'
+        )
+    }
+
+    environment {
+        GITOPS_REPOSITORY = 'git@github.com:REPLACE_ME/gitops-lab.git'
+        GIT_AUTHOR_NAME = 'gitops-automation'
+        GIT_AUTHOR_EMAIL = 'gitops-automation@example.invalid'
+    }
+
+    stages {
+        stage('Validate Input') {
+            steps {
+                sh '''
+                    set -euo pipefail
+                    test -n "${IMAGE_REFERENCE}"
+                    case "${TARGET_ENVIRONMENT}" in
+                      dev|staging|prod) ;;
+                      *) echo "Unsupported environment"; exit 1 ;;
+                    esac
+                '''
+            }
+        }
+
+        stage('Build, Test, Scan, and Publish') {
+            steps {
+                echo '''
+                Replace this educational placeholder with the application CI:
+                - test source
+                - build image
+                - scan image
+                - sign image
+                - publish immutable image
+                - capture digest and provenance
+                '''
+            }
+        }
+
+        stage('Update GitOps Desired State') {
+            steps {
+                sshagent(credentials: ['gitops-repo-write']) {
+                    sh '''
+                        set -euo pipefail
+                        rm -rf gitops-repository
+                        git clone "${GITOPS_REPOSITORY}" gitops-repository
+                        cd gitops-repository
+
+                        branch="automation/demo-app-${TARGET_ENVIRONMENT}-${BUILD_NUMBER}"
+                        git switch -c "${branch}"
+
+                        overlay="apps/demo-app/overlays/${TARGET_ENVIRONMENT}"
+                        test -f "${overlay}/kustomization.yaml"
+
+                        cd "${overlay}"
+                        kustomize edit set image "nginx=${IMAGE_REFERENCE}"
+                        kubectl kustomize . > /tmp/demo-app-rendered.yaml
+                        grep -n "image:" /tmp/demo-app-rendered.yaml
+
+                        cd -
+                        git config user.name "${GIT_AUTHOR_NAME}"
+                        git config user.email "${GIT_AUTHOR_EMAIL}"
+                        git add "${overlay}/kustomization.yaml"
+
+                        if git diff --cached --quiet; then
+                          echo "Desired state already references ${IMAGE_REFERENCE}"
+                          exit 0
+                        fi
+
+                        git commit -m "chore(${TARGET_ENVIRONMENT}): update demo-app to ${IMAGE_REFERENCE}"
+                        git push --set-upstream origin "${branch}"
+
+                        echo "Create a pull request through the source-control API."
+                        echo "Do not push directly to a protected production branch."
+                    '''
+                }
+            }
+        }
+    }
+
+    post {
+        always {
+            archiveArtifacts artifacts: '/tmp/demo-app-rendered.yaml',
+                             allowEmptyArchive: true
+            deleteDir()
+        }
+    }
+}

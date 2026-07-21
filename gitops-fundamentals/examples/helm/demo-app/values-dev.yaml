@@ -1,0 +1,13 @@
+replicaCount: 1
+
+config:
+  environment: development
+  message: Hello from Helm values in development
+
+resources:
+  requests:
+    cpu: 20m
+    memory: 32Mi
+  limits:
+    cpu: 200m
+    memory: 128Mi

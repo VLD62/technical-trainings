@@ -23,6 +23,7 @@ Each training is organized as an independent module with its own structure, setu
 | **Python Scripting: Basics** | Practical introduction to Python scripting, automation, functions, modules, file processing, command-line tools, logging, testing, and object-oriented programming with classes, composition, inheritance, and protocols. | [Open training](./python-scripting-basics/) |
 | **Cloud Computing: Fundamentals** | Vendor-neutral introduction to cloud computing concepts, service and deployment models, reliability, security, networking, storage, databases, observability, Infrastructure as Code, FinOps, migration strategies, and the core services of AWS, Microsoft Azure, Google Cloud, and Oracle Cloud Infrastructure. | [Open training](./cloud-computing-fundamentals/) |
 | **Terraform: Fundamentals** | Hands-on introduction to Infrastructure as Code with Terraform, covering HCL, providers, resources, variables, outputs, state, modules, lifecycle rules, workspaces, backends, testing, security, refactoring, import workflows, and CI/CD practices. | [Open training](./terraform-fundamentals/) |
+| **GitOps: Fundamentals** | Practical introduction to GitOps principles, declarative delivery, reconciliation, repository strategies, Argo CD, Helm, Kustomize, ApplicationSet, Flux, security, environment promotion, CI integration, observability, and troubleshooting. | [Open training](./gitops-fundamentals/) |
 
 ## Repository Structure
 
@@ -158,7 +159,18 @@ technical-trainings/
 │   ├── examples/
 │   ├── scripts/
 │   └── quizzes/
-└── terraform-fundamentals/
+├── terraform-fundamentals/
+│   ├── README.md
+│   ├── MANIFEST.md
+│   ├── LICENSE.md
+│   ├── Makefile
+│   ├── slides/
+│   ├── docs/
+│   ├── labs/
+│   ├── examples/
+│   ├── scripts/
+│   └── quizzes/
+└── gitops-fundamentals/
     ├── README.md
     ├── MANIFEST.md
     ├── LICENSE.md

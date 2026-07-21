@@ -1,0 +1,57 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: training
+  namespace: argocd
+spec:
+  description: Restricted project for the GitOps Fundamentals labs
+
+  sourceRepos:
+    - https://github.com/REPLACE_ME/gitops-lab.git
+
+  destinations:
+    - server: https://kubernetes.default.svc
+      namespace: gitops-demo-*
+    - server: https://kubernetes.default.svc
+      namespace: gitops-helm-demo
+
+  clusterResourceWhitelist:
+    - group: ""
+      kind: Namespace
+
+  namespaceResourceWhitelist:
+    - group: ""
+      kind: ConfigMap
+    - group: ""
+      kind: Service
+    - group: ""
+      kind: ServiceAccount
+    - group: apps
+      kind: Deployment
+    - group: batch
+      kind: Job
+    - group: networking.k8s.io
+      kind: Ingress
+
+  orphanedResources:
+    warn: true
+
+  roles:
+    - name: developer
+      description: View and sync training applications
+      policies:
+        - p, proj:training:developer, applications, get, training/*, allow
+        - p, proj:training:developer, applications, sync, training/*, allow
+        - p, proj:training:developer, logs, get, training/*, allow
+      groups:
+        - training-developers
+
+  # Example only. Review cron expressions and override policy carefully.
+  # syncWindows:
+  #   - kind: deny
+  #     schedule: "0 22 * * *"
+  #     duration: 8h
+  #     applications:
+  #       - "*-prod"
+  #     manualSync: false
+  #     timeZone: Europe/Sofia

@@ -1,0 +1,116 @@
+name: Propose GitOps image update
+
+on:
+  workflow_dispatch:
+    inputs:
+      image_reference:
+        description: Immutable image tag or digest
+        required: true
+        type: string
+      environment:
+        description: Target environment
+        required: true
+        type: choice
+        options:
+          - dev
+          - staging
+          - prod
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: gitops-demo-app-${{ inputs.environment }}
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out GitOps repository
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Install Kustomize
+        shell: bash
+        run: |
+          set -euo pipefail
+          # Pin and verify the installation mechanism in production.
+          curl -fsSLo /tmp/install_kustomize.sh \
+            https://raw.githubusercontent.com/kubernetes-sigs/kustomize/master/hack/install_kustomize.sh
+          bash /tmp/install_kustomize.sh "${RUNNER_TEMP}"
+          echo "${RUNNER_TEMP}" >> "${GITHUB_PATH}"
+
+      - name: Update desired state
+        shell: bash
+        env:
+          IMAGE_REFERENCE: ${{ inputs.image_reference }}
+          TARGET_ENVIRONMENT: ${{ inputs.environment }}
+        run: |
+          set -euo pipefail
+
+          case "${TARGET_ENVIRONMENT}" in
+            dev|staging|prod) ;;
+            *) echo "Unsupported environment"; exit 1 ;;
+          esac
+
+          overlay="apps/demo-app/overlays/${TARGET_ENVIRONMENT}"
+          test -f "${overlay}/kustomization.yaml"
+
+          pushd "${overlay}"
+          kustomize edit set image "nginx=${IMAGE_REFERENCE}"
+          kubectl kustomize . > /tmp/demo-app-rendered.yaml
+          popd
+
+          grep -n "image:" /tmp/demo-app-rendered.yaml
+
+      - name: Commit branch
+        id: commit
+        shell: bash
+        env:
+          IMAGE_REFERENCE: ${{ inputs.image_reference }}
+          TARGET_ENVIRONMENT: ${{ inputs.environment }}
+        run: |
+          set -euo pipefail
+
+          branch="automation/demo-app-${TARGET_ENVIRONMENT}-${GITHUB_RUN_ID}"
+          git switch -c "${branch}"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "apps/demo-app/overlays/${TARGET_ENVIRONMENT}/kustomization.yaml"
+
+          if git diff --cached --quiet; then
+            echo "changed=false" >> "${GITHUB_OUTPUT}"
+            exit 0
+          fi
+
+          git commit -m "chore(${TARGET_ENVIRONMENT}): update demo-app to ${IMAGE_REFERENCE}"
+          git push --set-upstream origin "${branch}"
+
+          echo "changed=true" >> "${GITHUB_OUTPUT}"
+          echo "branch=${branch}" >> "${GITHUB_OUTPUT}"
+
+      - name: Create pull request
+        if: steps.commit.outputs.changed == 'true'
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          BRANCH: ${{ steps.commit.outputs.branch }}
+          IMAGE_REFERENCE: ${{ inputs.image_reference }}
+          TARGET_ENVIRONMENT: ${{ inputs.environment }}
+        run: |
+          set -euo pipefail
+          gh pr create \
+            --base main \
+            --head "${BRANCH}" \
+            --title "chore(${TARGET_ENVIRONMENT}): update demo-app image" \
+            --body "Proposes ${IMAGE_REFERENCE} for ${TARGET_ENVIRONMENT}.
+
+          Validation:
+          - Kustomize rendered successfully
+          - Image reference is visible in generated output
+
+          Production repositories should add provenance, scan results, policy checks, and required reviews."
