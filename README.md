@@ -22,6 +22,7 @@ Each training is organized as an independent module with its own structure, setu
 | **Bash Scripting: Fundamentals** | Hands-on introduction to Bash scripting, covering shell fundamentals, variables, parameters, conditions, loops, functions, arrays, text processing, files, error handling, debugging, security, testing, and reusable automation scripts. | [Open training](./bash-scripting-fundamentals/) |
 | **Python Scripting: Basics** | Practical introduction to Python scripting, automation, functions, modules, file processing, command-line tools, logging, testing, and object-oriented programming with classes, composition, inheritance, and protocols. | [Open training](./python-scripting-basics/) |
 | **Cloud Computing: Fundamentals** | Vendor-neutral introduction to cloud computing concepts, service and deployment models, reliability, security, networking, storage, databases, observability, Infrastructure as Code, FinOps, migration strategies, and the core services of AWS, Microsoft Azure, Google Cloud, and Oracle Cloud Infrastructure. | [Open training](./cloud-computing-fundamentals/) |
+| **Terraform: Fundamentals** | Hands-on introduction to Infrastructure as Code with Terraform, covering HCL, providers, resources, variables, outputs, state, modules, lifecycle rules, workspaces, backends, testing, security, refactoring, import workflows, and CI/CD practices. | [Open training](./terraform-fundamentals/) |
 
 ## Repository Structure
 
@@ -146,7 +147,18 @@ technical-trainings/
 │   ├── examples/
 │   ├── scripts/
 │   └── quizzes/
-└── cloud-computing-fundamentals/
+├── cloud-computing-fundamentals/
+│   ├── README.md
+│   ├── MANIFEST.md
+│   ├── LICENSE.md
+│   ├── Makefile
+│   ├── slides/
+│   ├── docs/
+│   ├── labs/
+│   ├── examples/
+│   ├── scripts/
+│   └── quizzes/
+└── terraform-fundamentals/
     ├── README.md
     ├── MANIFEST.md
     ├── LICENSE.md
