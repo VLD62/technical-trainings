@@ -93,6 +93,8 @@ def check_placeholders() -> list[str]:
             continue
         if path.name == "validate_content.py":
             continue
+        if "__pycache__" in path.parts or ".rendered" in path.parts:
+            continue
         text = path.read_text(encoding="utf-8", errors="ignore")
         if "REPLACE_ME" in text:
             rel = path.relative_to(ROOT)

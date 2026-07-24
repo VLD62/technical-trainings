@@ -1,7 +1,7 @@
 SHELL := /usr/bin/env bash
 ROOT := $(CURDIR)
 
-.PHONY: help list check-environment content-check yaml-check shell-check \
+.PHONY: help list check-environment validate content-check yaml-check shell-check \
         cluster-create argocd-install argocd-password argocd-port-forward \
         render helm-lint apply-dev delete-dev clean-lab package
 
@@ -10,7 +10,8 @@ help:
 	@echo
 	@echo "make list              List course materials"
 	@echo "make check-environment Check local CLI prerequisites"
-	@echo "make content-check     Validate course structure, links, YAML, and scripts"
+	@echo "make validate          Validate course structure, links, YAML, and scripts"
+	@echo "make content-check     Alias for make validate"
 	@echo "make cluster-create    Create a disposable kind cluster"
 	@echo "make argocd-install    Install Argo CD in the current cluster"
 	@echo "make argocd-password   Print the initial Argo CD admin password"
@@ -28,7 +29,7 @@ list:
 check-environment:
 	@bash scripts/validate_environment.sh
 
-content-check:
+validate content-check:
 	@python3 scripts/validate_content.py
 	@$(MAKE) shell-check
 

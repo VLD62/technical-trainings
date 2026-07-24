@@ -1,0 +1,82 @@
+name: validate
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  structure:
+    name: Structure, links, and syntax
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Repository structure, placeholders, and links
+        run: python3 scripts/validate_repo.py
+      - name: Python syntax
+        run: make python-syntax
+      - name: Shell syntax
+        run: make shell-syntax
+
+  markdown:
+    name: Markdown lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Lint Markdown
+        uses: DavidAnson/markdownlint-cli2-action@v16
+        with:
+          globs: "**/*.md"
+
+  yaml:
+    name: YAML lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install yamllint
+        run: python3 -m pip install --quiet yamllint
+      - name: Lint YAML
+        run: |
+          shopt -s globstar nullglob
+          files=(**/*.yml **/*.yaml)
+          if [ ${#files[@]} -eq 0 ]; then
+            echo "No YAML files found; skipping."
+          else
+            yamllint -c .yamllint.yml "${files[@]}"
+          fi
+
+  shell:
+    name: ShellCheck
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run ShellCheck
+        uses: ludeeus/action-shellcheck@2.0.0
+        with:
+          severity: warning
+
+  terraform:
+    name: Terraform fmt
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: "1.9.5"
+      - name: Check formatting
+        run: |
+          if [ -d terraform-fundamentals ]; then
+            terraform fmt -check -recursive terraform-fundamentals
+          else
+            echo "No Terraform module present; skipping."
+          fi
