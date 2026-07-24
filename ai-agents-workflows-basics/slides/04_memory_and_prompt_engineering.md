@@ -141,7 +141,7 @@ The model itself does not keep session state between calls.
 
 # Important Idea
 
-## Memory is not magic.
+## Memory is not magic
 
 Memory means:
 

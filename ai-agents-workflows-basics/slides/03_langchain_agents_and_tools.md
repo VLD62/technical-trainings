@@ -424,7 +424,3 @@ Typical structure for production AI applications.
 * Prompt Design
 * Human-in-the-Loop
 * Context Management
-
-```
-```
-

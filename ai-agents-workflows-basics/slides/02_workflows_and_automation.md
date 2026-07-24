@@ -228,6 +228,3 @@ Example:
 * Tool Calling
 * Agent Logic
 * Building the First Real Agent
-
-```
-```

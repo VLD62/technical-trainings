@@ -39,7 +39,6 @@ The wording below is summarized for course navigation. The official LPI page rem
 | 104.6 | Create and change hard and symbolic links | 2 | Session 7, Lab 7 |
 | 104.7 | Find system files and place files in the correct location | 2 | Session 7, Lab 7 |
 
-
 Total published weight represented: **60**.
 
 Objective 104.4 is marked as removed in the current objective set and is not treated as an active objective.
@@ -67,7 +66,6 @@ Objective 104.4 is marked as removed in the current objective set and is not tre
 | 110.1 | Perform security administration tasks | 3 | Session 14, Lab 12 |
 | 110.2 | Set up host security | 3 | Session 14, Lab 12 |
 | 110.3 | Secure data with encryption | 4 | Session 14, Lab 12 |
-
 
 Total published weight represented: **60**.
 

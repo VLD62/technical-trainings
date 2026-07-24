@@ -97,9 +97,9 @@ Weak question:
 Better questions:
 
 > Which monitored hosts are unavailable?
-
+>
 > Which host has the highest CPU usage?
-
+>
 > Is the application error rate increasing?
 
 ---

@@ -1,0 +1,14 @@
+{
+  // Relaxed rules suited to long-form training content.
+  "default": true,
+  "MD013": false, // line length — prose and tables run long
+  "MD024": { "siblings_only": true }, // repeated headings allowed across sections
+  "MD025": false, // Marp slide decks use one H1 per slide
+  "MD001": false, // slides intentionally skip heading levels
+  "MD033": false, // inline HTML is used in some slides
+  "MD034": false, // bare URLs appear in reference lists
+  "MD036": false, // slides use bold labels instead of headings
+  "MD029": false, // quizzes use continuous question numbering (e.g. 11–15)
+  "MD041": false, // first line need not be a top-level heading
+  "MD046": false  // mixed code block styles across modules
+}

@@ -173,4 +173,3 @@ These tools help build modern AI applications.
 * Agent vs Workflow
 * Introduction to automation
 * Practical examples
-
