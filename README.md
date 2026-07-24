@@ -1,5 +1,7 @@
 # Technical Trainings
 
+[![validate](https://github.com/VLD62/technical-trainings/actions/workflows/validate.yml/badge.svg)](https://github.com/VLD62/technical-trainings/actions/workflows/validate.yml)
+
 Reusable, hands-on technical trainings for DevOps, platform engineering, cloud
 infrastructure, automation, observability, databases, software development, and
 AI-assisted workflows.
