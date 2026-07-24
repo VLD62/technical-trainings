@@ -14,7 +14,7 @@ sleep_seconds=5
 for service in "${services[@]}"; do
   echo "Waiting for ${service}..."
   for ((attempt = 1; attempt <= max_attempts; attempt++)); do
-    container_id="$(${compose[@]} ps -q "$service")"
+    container_id="$("${compose[@]}" ps -q "$service")"
     if [[ -z "$container_id" ]]; then
       echo "Container for ${service} is not running." >&2
       exit 1

@@ -32,7 +32,7 @@ if command -v kubectl >/dev/null 2>&1; then
   if [[ -n "${current_context}" ]]; then
     echo "Current Kubernetes context: ${current_context}"
     case "${current_context}" in
-      *prod*|*production*)
+      *prod*)
         echo "WARNING: Current context name looks production-related." >&2
         ;;
     esac
