@@ -1,7 +1,7 @@
 # Module Manifest
 
-- **Title:** Python Scripting & OOP: Basics
-- **Directory:** `python-scripting-oop-basics`
+- **Title:** Python Scripting: Basics
+- **Directory:** `python-scripting-basics`
 - **Level:** Beginner to early intermediate
 - **Language:** Python 3
 - **Runtime dependencies:** Python standard library

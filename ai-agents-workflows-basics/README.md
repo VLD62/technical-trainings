@@ -75,30 +75,13 @@ By the end of this course participants will:
 
 ```text
 ai-agents-workflows-basics/
-│
 ├── README.md
-│
-├── slides/
-│   ├── 00_course_introduction.md
-│   ├── 01_introduction_to_ai_agents.md
-│   └── ...
-│
-├── notebooks/
-│   ├── 01_introduction_to_ai_agents.ipynb
-│   └── ...
-│
-├── examples/
-│   ├── simple_llm.py
-│   ├── simple_tool.py
-│   └── ...
-│
-├── docs/
-│   ├── glossary.md
-│   └── useful_links.md
-│
+├── MANIFEST.md
 ├── requirements.txt
-│
-└── .env.example
+├── .env.example
+├── slides/          # Session presentations (00–07)
+├── notebooks/       # Hands-on Jupyter notebooks (01–07)
+└── docs/            # Glossary and curated further reading
 ```
 
 ---
@@ -108,8 +91,8 @@ ai-agents-workflows-basics/
 Clone the repository:
 
 ```bash
-git clone <repository-url>
-cd ai-agents-workflows-basics
+git clone https://github.com/VLD62/technical-trainings.git
+cd technical-trainings/ai-agents-workflows-basics
 ```
 
 Create a virtual environment:
@@ -146,7 +129,7 @@ jupyter lab
 
 ## OpenAI API Configuration
 
-Create a `.env` file in the repository root:
+Create a `.env` file in the module directory (it is ignored by Git):
 
 ```bash
 cp .env.example .env
@@ -180,8 +163,8 @@ For each session:
 
 1. Review the presentation slides
 2. Run the accompanying Jupyter notebook
-3. Experiment with the provided examples
-4. Complete the exercises
+3. Modify the notebook cells and observe how the behavior changes
+4. Compare LLM-only, tool-using, and agent variations
 5. Discuss findings with the group
 
 ---
@@ -198,4 +181,3 @@ under the MIT License.
 
 Third-party images, trademarks, and referenced materials remain subject
 to their respective owners and licenses.
-

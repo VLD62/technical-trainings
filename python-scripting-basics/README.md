@@ -80,7 +80,7 @@ flowchart LR
 ## Repository Structure
 
 ```text
-python-scripting-oop-basics/
+python-scripting-basics/
 ├── README.md
 ├── MANIFEST.md
 ├── LICENSE.md
@@ -103,7 +103,7 @@ Clone the main repository and enter the module:
 
 ```bash
 git clone https://github.com/VLD62/technical-trainings.git
-cd technical-trainings/python-scripting-oop-basics
+cd technical-trainings/python-scripting-basics
 ```
 
 Create and activate a virtual environment:

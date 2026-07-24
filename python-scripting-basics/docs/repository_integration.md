@@ -3,19 +3,19 @@
 ## Directory
 
 ```text
-technical-trainings/python-scripting-oop-basics/
+technical-trainings/python-scripting-basics/
 ```
 
 ## Root Training Catalog Row
 
 ```markdown
-| **Python Scripting & OOP: Basics** | Practical introduction to Python scripting, automation, functions, modules, file processing, command-line tools, logging, testing, and object-oriented programming with classes, composition, inheritance, and protocols. | [Open training](./python-scripting-oop-basics/) |
+| [Python Scripting: Basics](./python-scripting-basics/) | Python scripting and automation: functions, modules, file processing, CLI tools, logging, testing, and object-oriented design. |
 ```
 
 ## Root Repository Tree Entry
 
 ```text
-├── python-scripting-oop-basics/
+├── python-scripting-basics/
 │   ├── README.md
 │   ├── MANIFEST.md
 │   ├── LICENSE.md
@@ -32,5 +32,5 @@ technical-trainings/python-scripting-oop-basics/
 ## Suggested Commit Message
 
 ```text
-feat: add Python scripting and OOP basics training
+feat: add Python scripting basics training
 ```
