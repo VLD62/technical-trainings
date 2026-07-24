@@ -1,0 +1,7 @@
+# Local environment overrides (copy from .env.example)
+.env
+
+# Runtime data and generated output
+lab/prometheus/data/
+lab/grafana/data/
+*.log
